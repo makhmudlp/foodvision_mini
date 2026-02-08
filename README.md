@@ -1,49 +1,95 @@
 # FoodVision Mini 🍕🥗🍔
 
-FoodVision Mini is a lightweight food image classification project that compares Vision Transformers (ViT) and EfficientNet for fast CPU-based inference and deployment. And Deploys the best option to HugginFace spaces
+FoodVision Mini is a lightweight food image classification project that compares **EfficientNet-B2** and **Vision Transformer (ViT)** models, with a focus on **real-world inference speed, accuracy, and deployment**.
+
+The project demonstrates the full machine learning workflow — from data preparation and training to benchmarking and deployment — using **PyTorch** and **Hugging Face Spaces**.
+
+---
 
 ## 🚀 Live Demo
 
-👉 Try the model here: https://huggingface.co/spaces/makhmudlp/foodvision_mini
+👉 Hugging Face Space: https://huggingface.co/spaces/makhmudlp/foodvision_mini
+
+Upload an image and get an instant prediction from the deployed model.
+
+---
 
 ## 📌 Project Overview
 
-This project classifies images into **3 food categories** using deep learning.
-The main goal is to:
+FoodVision Mini classifies images into **3 food categories**.
+
+The main goals of this project are to:
 
 - Train a small but effective image classifier
 - Compare **EfficientNet-B2 vs Vision Transformer (ViT)**
-- Benchmark inference speed under real deployment conditions
-- Deploy the final model using **Gradio on Hugging Face Spaces**
-## 🧠 Models
+- Measure inference speed under **CPU, single-image conditions**
+- Understand why benchmark results differ across environments
+- Deploy a real, usable model using **Gradio on Hugging Face Spaces**
 
-Two architectures were evaluated:
+This project intentionally focuses on **practical ML engineering tradeoffs**, not just model size.
 
-- **EfficientNet-B2**
-  - Lightweight CNN
-  - Small model size (~30 MB)
-  - Slower single-image CPU inference
+---
 
-- **Vision Transformer (ViT)**
-  - Larger model (~327 MB)
-  - Dense matrix operations
-  - Faster single-image CPU inference in this setup
+## 🧠 Models Evaluated
+
+### EfficientNet-B2
+- Convolutional neural network (CNN)
+- Small model size (~30 MB)
+- Strong accuracy
+- Slower single-image CPU inference in this setup
+
+### Vision Transformer (ViT)
+- Transformer-based architecture
+- Larger model size (~327 MB)
+- Higher accuracy
+- Faster single-image CPU inference due to optimized matrix operations
+
+---
+
+## 📊 Results
+
+| Model | Test Accuracy | Model Size | CPU Time / Image |
+|------|--------------|------------|------------------|
+| EfficientNet-B2 | 95.97% | ~30 MB | ~138 ms |
+| Vision Transformer (ViT) | 98.47% | ~327 MB | ~52 ms |
+
+**Key insight:**  
+Despite being much larger, ViT achieved faster CPU inference in this deployment scenario due to better utilization of optimized linear algebra operations. This highlights how **model size alone is not a reliable predictor of inference speed**.
+
+---
 
 ## 🚀 Deployment
 
 - Framework: **Gradio**
 - Platform: **Hugging Face Spaces**
 - Hardware: **CPU (Free tier)**
-- Inference mode: Single image
+- Inference mode: **Single image**
 
-The ViT model was selected for deployment due to its higher accuracy and lower latency under CPU inference.
+The **Vision Transformer** model was selected for deployment due to its higher accuracy and lower latency under CPU inference.
 
-## 🛠 Tech Stack
+📌 **Note:** Only the `deploying/foodvision_mini/` directory is required for deployment.
 
-- Python
-- PyTorch
-- Torchvision
-- Gradio
-- Hugging Face Spaces
-- Git LFS
+---
 
+## 📁 Repository Structure
+
+```text
+.
+├── deploying/foodvision_mini/
+│   ├── app.py
+│   ├── model.py
+│   ├── requirements.txt
+│   └── (files used for Hugging Face Spaces)
+│
+├── going_modular/
+│   └── Training and experimentation utilities
+│
+├── helper_functions.py
+│   └── Shared helper functions used in notebooks
+│
+├── model_deployment.ipynb
+│   └── End-to-end project walkthrough
+│
+├── README.md
+└── LICENSE
+```
