@@ -4,7 +4,7 @@ FoodVision Mini is a lightweight food image classification project that compares
 
 ## 🚀 Live Demo
 
-👉 Try the model here: https://huggingface.co/spaces/USERNAME/foodvision_mini
+👉 Try the model here: [https://huggingface.co/spaces/USERNAME/foodvision_mini](https://huggingface.co/spaces/makhmudlp/foodvision_mini)
 
 ## 📌 Project Overview
 
