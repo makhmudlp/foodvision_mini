@@ -65,7 +65,7 @@ Despite being much larger, ViT achieved faster CPU inference in this deployment 
 - Hardware: **CPU (Free tier)**
 - Inference mode: **Single image**
 
-The **Vision Transformer** model was selected for deployment due to its higher accuracy and lower latency under CPU inference.
+The **EffNetB2** model was selected for deployment due to its higher accuracy and lower latency under CPU inference.
 
 📌 **Note:** Only the `deploying/foodvision_mini/` directory is required for deployment.
 
